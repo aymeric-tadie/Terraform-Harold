@@ -1,13 +1,11 @@
 provider "aws" {
-  region = "us-east-1" # Tu peux changer la région si nécessaire
+  region = var.region
 }
 
 resource "aws_instance" "Terraform_Harold" {
-  ami           = "ami-00ca32bbc84273381"
-  instance_type = "t2.small"
-  key_name      = "HaroldKey"
+  ami           = var.ami
+  instance_type = var.instance_type
+  key_name      = var.key_name
 
-  tags = {
-    Name = "Terraform-Harold"
-  }
+  tags = var.tags
 }
